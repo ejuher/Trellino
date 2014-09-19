@@ -1,3 +1,8 @@
 <% boards.each( function(board) { %>
 	<li><a href="#boards/<%= board.id %>"><%= board.escape('title') %></a></li>
 <% }); %>
+<form class="new-board">
+<label for="new-board">New Board</label>
+<input type="text" name="board[title]" id="new-board">
+<input type="submit">
+</form>

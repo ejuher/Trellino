@@ -3,7 +3,23 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 	tagName: 'ul',
 
 	initialize: function () {
-		this.listenTo(this.collection, 'sync', this.render)
+		this.listenTo(this.collection, 'sync add', this.render)
+	},
+
+	events: {
+		'submit form.new-board': 'createBoard'
+	},
+
+	createBoard: function (event) {
+		event.preventDefault();
+		var formJSON = $(event.currentTarget).serializeJSON();
+		var newBoard = new TrelloClone.Models.Board(formJSON);
+		newBoard.save({}, {
+			success: function () {
+				// this.collection.add(newBoard);
+				Backbone.history.navigate("boards/" + newBoard.id, { trigger: true });
+			}.bind(this)
+		});
 	},
 
 	render: function () {
@@ -11,4 +27,10 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 		this.$el.html(renderedContent); 
 		return this;
 	}
+
+	// button for new board
+	// event for clicking on the button
+	// when button is clicked on, render a form
+	// event listening for form submit
+	// on form submit, create the board in the database and re-render
 })
