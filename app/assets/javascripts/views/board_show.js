@@ -14,10 +14,15 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 	},
 
 	render: function () {
-		// error because the boards lists are not being fetched
-		var renderedContent = this.template({ board: this.model });
-		this.$el.html(renderedContent);	
+		var renderedBoard = this.template({ board: this.model });
+		this.$el.html(renderedBoard);	
 		this.attachSubviews();	
+		// console.log(this.model.id);
+		var newListForm = new TrelloClone.Views.ListNew({ 
+			collection: this.model.lists() 
+		});
+		this.$el.append(newListForm.render().$el);
+
 		return this;
 	}
 })

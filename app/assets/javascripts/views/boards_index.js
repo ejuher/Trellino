@@ -7,7 +7,7 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 	},
 
 	events: {
-		'submit form.new-board': 'createBoard'
+		'submit form.new-list': 'createBoard'
 	},
 
 	createBoard: function (event) {
