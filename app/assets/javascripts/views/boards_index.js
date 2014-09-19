@@ -3,11 +3,12 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 	tagName: 'ul',
 
 	initialize: function () {
-		this.listenTo(this.collection, 'sync add', this.render)
+		this.listenTo(this.collection, 'sync add destroy', this.render)
 	},
 
 	events: {
-		'submit form.new-list': 'createBoard'
+		'submit form.new-list': 'createBoard',
+		'click button.delete-board': 'deleteBoard'
 	},
 
 	createBoard: function (event) {
@@ -20,6 +21,12 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 				Backbone.history.navigate("boards/" + newBoard.id, { trigger: true });
 			}.bind(this)
 		});
+	},
+
+	deleteBoard: function (event) {
+		var boardId = $(event.currentTarget).data('boardId');
+		var board = this.collection.getOrFetch(boardId);
+		board.destroy();
 	},
 
 	render: function () {
