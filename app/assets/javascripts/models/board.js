@@ -20,6 +20,10 @@ TrelloClone.Models.Board = Backbone.Model.extend({
 			new TrelloClone.Collections.BoardLists([], { board: this });
 		return this._lists
 		// why pass in an empty array?
+		// because passing options to a backbone collection can only be done as 
+		// the second argument
+
+		// how does this collection get populated?
 
 		// WHY ARE THESE UNDERSCORED??
 		// Is it to differentiate the instance variable from the method?
