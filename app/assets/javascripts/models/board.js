@@ -24,6 +24,7 @@ TrelloClone.Models.Board = Backbone.Model.extend({
 		// the second argument
 
 		// how does this collection get populated?
+		// it gets populated when the parse method is called
 
 		// WHY ARE THESE UNDERSCORED??
 		// Is it to differentiate the instance variable from the method?

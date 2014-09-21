@@ -22,6 +22,7 @@ module Api
     end
 
     def show
+      # why the includes statement here?
       @board = Board.includes(:members, lists: :cards).find(params[:id])
       @lists = @board.lists
       if @board.is_member?(current_user)
