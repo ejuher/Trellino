@@ -8,9 +8,8 @@ TrelloClone.Models.List = Backbone.Model.extend({
 	},
 
 	parse: function (jsonResp) {
-		debugger
 		if (jsonResp.cards) {
-			this.cards().set(jsonResp.cards);
+			this.cards().set(jsonResp.cards, { parse: true });
 			delete jsonResp.cards;
 		}
 		return jsonResp;
