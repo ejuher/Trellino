@@ -13,17 +13,23 @@ TrelloClone.Views.CardShow = Backbone.View.extend({
 
 	
 	events: {
-		'mouseover .card-title'       : 'showX',
-		'mouseout  .card-title'       : 'hideX',
-		'click     .glyphicon-remove' : 'deleteList'
+		'mouseenter .card-title'       : 'showX',
+		'mouseleave .card-title'       : 'hideX',
+		'click      .glyphicon-remove' : 'deleteList'
 	},
 
 	showX: function(event) {
-		$(event.currentTarget).find('.glyphicon-remove').removeClass('hidden');
+		var $closeIcon = $(event.currentTarget).find('.glyphicon-remove');
+		$closeIcon.hide();
+		$closeIcon.removeClass('hidden');
+		$closeIcon.show(200);
 	},
 
 	hideX: function(event) {
-		$(event.currentTarget).find('.glyphicon-remove').addClass('hidden');
+		var $closeIcon = $(event.currentTarget).find('.glyphicon-remove');
+		$closeIcon.hide(200, function() {
+			$closeIcon.find('.glyphicon-remove').addClass('hidden');
+		})
 	},
 
 	deleteList: function(event) {
