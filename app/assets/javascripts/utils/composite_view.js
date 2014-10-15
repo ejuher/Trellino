@@ -2,6 +2,7 @@ Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {
     this.subviews(selector).push(subview);
     // Try to attach the subview. Render it as a convenience.
+
     this.attachSubview(selector, subview.render());
   },
 
@@ -10,6 +11,16 @@ Backbone.CompositeView = Backbone.View.extend({
     // Bind events in case `subview` has previously been removed from
     // DOM.
     subview.delegateEvents();
+  },
+
+  delegateEvents: function() {
+    Backbone.View.prototype.delegateEvents.call(this);
+
+    _(this.subviews()).each(function (subviews, selector) {
+      _(subviews).each(function (subview) {
+        subview.delegateEvents();
+      });
+    });
   },
 
   attachSubviews: function () {

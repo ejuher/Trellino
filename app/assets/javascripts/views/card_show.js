@@ -9,5 +9,28 @@ TrelloClone.Views.CardShow = Backbone.View.extend({
 		var renderedContent = this.template({ card: this.model });
 		this.$el.html(renderedContent);
 		return this;
+	},
+
+	
+	events: {
+		'mouseover .card-title'       : 'showX',
+		'mouseout  .card-title'       : 'hideX',
+		'click     .glyphicon-remove' : 'deleteList'
+	},
+
+	showX: function(event) {
+		$(event.currentTarget).find('.glyphicon-remove').removeClass('hidden');
+	},
+
+	hideX: function(event) {
+		$(event.currentTarget).find('.glyphicon-remove').addClass('hidden');
+	},
+
+	deleteList: function(event) {
+		this.model.destroy();
+		view = this;
+		this.$el.hide(200, function() {
+			view.remove();
+		});
 	}
 })

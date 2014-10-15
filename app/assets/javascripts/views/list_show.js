@@ -3,14 +3,10 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 
 	initialize: function () {
 		this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model.cards(), 'remove', this.render);
 		this.listenTo(this.model.cards(), 'add', this.addCard);
 
 		this.model.cards().each(this.addCard.bind(this));
-	},
-
-	events: {
-		'mouseover .list-title' : 'showX',
-		'mouseout .list-title'  : 'hideX'
 	},
 
 	addCard: function (card) {
@@ -25,11 +21,4 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 		return this;
 	},
 
-	showX: function(event) {
-		this.$el.find('.glyphicon').removeClass('hidden');
-	},
-
-	hideX: function(event) {
-		this.$el.find('.glyphicon').addClass('hidden');
-	}
 })
