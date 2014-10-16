@@ -21,4 +21,26 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 		return this;
 	},
 
+	events: {
+		'mouseenter .card'             : 'highlightCard',
+		'mouseleave .card' 						 : 'unHighlightCard',
+		'mousedown  .card'						 : 'startDragging',
+		'mouseup    .card'						 : 'stopDragging',
+	},
+
+	highlightCard: function(event) {
+		$(event.currentTarget).addClass('highlight');
+	},
+
+	unHighlightCard: function(event) {
+		$(event.currentTarget).removeClass('highlight');
+	},
+
+	startDragging: function(event) {
+		$(event.currentTarget).addClass('dragging');
+	},
+
+	stopDragging: function(event) {
+		$(event.currentTarget).removeClass('dragging');
+	}
 })

@@ -25,6 +25,7 @@
 	background: #96E0BA;
 	border: 2px solid #43A975;
 	border-radius: 6px;
+	box-shadow: 1px 1px 0px grey;
 	margin-bottom: 10px;
 	padding: 0px 10px 0px 10px;
 }
@@ -34,6 +35,14 @@
 	padding: 10px 0px 10px 0px;
 }
 
+.dragging {
+	box-shadow: 6px 6px 0px grey;
+}
+
+.highlight {
+	background: #43A975;
+}
+
 .list {
 	background: #9FA4DF;
 	border: 2px solid #5057A7;
@@ -41,6 +50,7 @@
 	float: left;
 	margin-left: 15px;
 	padding: 0px 10px 10px 10px;
+	width: 260px;
 }
 
 .navbar {
