@@ -35,10 +35,16 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 		'mouseleave .card' 						 : 'unHighlightCard',
 		'mousedown  .card'						 : 'startDragging',
 		'mouseup    .card'						 : 'stopDragging',
+		'click      .new-card-close'   : 'closeCardForm',
+	},
+
+	closeCardForm: function(event) {
+		console.log('close card form');
+		this.$('.card-footer').html('<div class="add-card">Add Card ...</div>');
 	},
 
 	highlightAddCard: function(event) {
-		$(event.currentTarget).addClass('highlight-add');		
+		$(event.currentTarget).toggleClass('highlight-add');		
 	},
 
 	unHighlightAddCard: function(event) {
@@ -46,8 +52,8 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 	},
 
 	showAddCardForm: function(event) {
-		// $(event.currentTarget)
-		console.log('clicked');		
+		var newCard = new TrelloClone.Views.CardNew({ collection: this.model.cards() });
+		this.$('.card-footer').html(newCard.render().$el);
 	},
 
 	highlightCard: function(event) {

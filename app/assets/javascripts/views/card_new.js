@@ -1,5 +1,7 @@
 TrelloClone.Views.CardNew = Backbone.View.extend({
-	template: JST['lists/new'],
+	template: JST['cards/new'],
+	tagName: 'form',
+	attributes: { 'role': 'form' },
 
 	events: {
 		"submit form": "createCard"
@@ -7,16 +9,16 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
 
 	createCard: function (event) {
 		event.preventDefault();
-
+		debugger
 		var formJSON = $(event.currentTarget).serializeJSON();
 		var newList = new TrelloClone.Models.Card(formJSON.card);
 
-		newList.set('board_id', this.collection.board.id);
+		newList.set('list_id', this.list.id);
 		
 		newList.save({}, {
 			success: function () {
-				this.collection.add(newList);
-				this.$el.find('#list-title').val('');
+				this.list.cards().add(newList);
+				// this.$el.find('#list-title').val('');
 			}.bind(this)
 		});
 	},
