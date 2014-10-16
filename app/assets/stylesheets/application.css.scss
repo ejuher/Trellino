@@ -16,8 +16,23 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.add-card {
+	padding: 10px;
+	border: 2px solid #5057A7;
+	border-radius: 6px;
+}
+
+.backdrop {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
 .board-show {
 	background: #95C0D9;
+	height: 100%;
 	padding: 1px 20px 20px 20px;
 }
 
@@ -37,10 +52,16 @@
 
 .dragging {
 	box-shadow: 6px 6px 0px grey;
+	transform: rotate(3deg);
 }
 
 .highlight {
 	background: #43A975;
+}
+
+.highlight-add {
+	background: #5057A7;
+	color: white;
 }
 
 .list {
