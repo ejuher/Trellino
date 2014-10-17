@@ -52,7 +52,7 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 	},
 
 	showAddCardForm: function(event) {
-		var newCard = new TrelloClone.Views.CardNew({ collection: this.model.cards() });
+		var newCard = new TrelloClone.Views.CardNew({ collection: this.model.cards(), model: this.model });
 		this.$('.card-footer').html(newCard.render().$el);
 	},
 
