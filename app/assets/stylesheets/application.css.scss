@@ -78,6 +78,11 @@ body {
 	margin-bottom: 0px;
 }
 
-.new-card-close {
+.glyphicon-remove {
 	float: right;
+	transition: transform 0.5s;
+}
+
+.glyphicon-remove:hover {
+	transform: rotate(180deg);
 }
