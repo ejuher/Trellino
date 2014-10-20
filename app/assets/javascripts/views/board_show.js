@@ -35,7 +35,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 				var listId = $list.data('listId');
 
 				for (var i = 0; i < $cards.length; i++) {
-					var cardId = $($cards[i]).data('cardId')
+					var cardId = $($cards[i]).data('cardId');
 					$.ajax({
 						url: 'api/cards/' + cardId,
 						type: 'PUT',
@@ -46,10 +46,23 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 		});
 	},
 
-	_sortableLists: function() {
+	_sortableLists: function () {
 		var $sortables = this.$('#lists.sortable')
 		$sortables.sortable({
-			connectWith: this.$('#lists.sortable')
+			connectWith: this.$('#lists.sortable'),
+
+			update: function (event, ui) {
+				var $lists = $(event.target).find('.list');
+
+				for (var i = 0; i < $lists.length; i++) {
+					var listId = $($lists[i]).data('listId');
+					$.ajax({
+						url: 'api/lists/' + listId,
+						type: 'PUT',
+						data: { list: { id: listId, ord: i } }
+					})
+				}
+			}
 		})
 	}
 })
