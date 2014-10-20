@@ -18,21 +18,22 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 		var renderedBoard = this.template({ board: this.model });
 		this.$el.html(renderedBoard);	
 		this.attachSubviews();	
-		this._sortable();
+		this._sortableCards();
+		this._sortableLists();
 
 		return this;
 	},
 
-	_sortable: function () {
-		var $sortables = this.$('.sortable');
+	_sortableCards: function () {
+		var $sortables = this.$('.cards.sortable');
 		$sortables.sortable({
-			connectWith: this.$('.sortable'),
+			connectWith: this.$('.cards.sortable'),
 
 			update: function (event, ui) {
-
 				var $list = $(event.target);
 				var $cards = $list.find('.card');
 				var listId = $list.data('listId');
+
 				for (var i = 0; i < $cards.length; i++) {
 					var cardId = $($cards[i]).data('cardId')
 					$.ajax({
@@ -43,5 +44,12 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 				}
 			}
 		});
+	},
+
+	_sortableLists: function() {
+		var $sortables = this.$('#lists.sortable')
+		$sortables.sortable({
+			connectWith: this.$('#lists.sortable')
+		})
 	}
 })
