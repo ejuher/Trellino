@@ -5,5 +5,8 @@
 
 json.title @board.title
 json.id @board.id
-json.lists @board.lists, :id, :title, :ord, :cards
+json.lists @board.lists do |list|
+	json.(list, :id, :title, :ord)
+	json.cards list.cards.order(:ord)
+end
 

@@ -47,6 +47,12 @@
 	transform: rotate(3deg);
 }
 
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .highlight {
 	background: #43A975;
 }
@@ -77,4 +83,8 @@
 
 .glyphicon-remove:hover {
 	transform: rotate(180deg);
+}
+
+textarea {
+	resize: vertical;
 }

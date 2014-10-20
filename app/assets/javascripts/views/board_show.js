@@ -26,7 +26,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 	_sortable: function () {
 		var $sortables = this.$('.sortable');
 		$sortables.sortable({
-
+			connectWith: this.$('.sortable')
 		});
 	}
 })
