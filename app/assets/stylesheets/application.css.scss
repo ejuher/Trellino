@@ -43,7 +43,7 @@
 }
 
 .dragging {
-	box-shadow: 6px 6px 0px grey;
+	box-shadow: 6px 6px 0px rgba(10,10,10,0.5);
 	transform: rotate(3deg);
 }
 
@@ -70,6 +70,11 @@
 	margin-left: 15px;
 	padding: 0px 10px 10px 10px;
 	width: 260px;
+}
+
+.list-title {
+	margin: 0px;
+	padding: 10px 0px;
 }
 
 .navbar {

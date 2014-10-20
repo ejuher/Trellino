@@ -9,6 +9,11 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 		this.model.lists().each(this.addList.bind(this));
 	},
 
+	events: {
+		'mousedown .list-title' : 'startDragging',
+		'mouseup   .list-title' : 'stopDragging',
+	},
+
 	addList: function (list) {
 		newList = new TrelloClone.Views.ListShow({ model: list });
 		this.addSubview("#lists", newList);
@@ -64,5 +69,15 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 				}
 			}
 		})
+	},
+
+	startDragging: function(event) {
+		if (event.which === 1) {
+			$(event.currentTarget.parentElement).addClass('dragging');
+		}
+	},
+
+	stopDragging: function(event) {
+		$(event.currentTarget.parentElement).removeClass('dragging');
 	}
 })
