@@ -37,6 +37,10 @@
 	padding: 0px 10px 0px 10px;
 }
 
+.cards {
+	padding: 4px 0px;
+}
+
 .card-title {
 	margin: 0px;
 	padding: 10px 0px 10px 0px;
@@ -54,6 +58,7 @@
 }
 
 .highlight {
+	cursor: -webkit-grab;
 	background: #43A975;
 }
 
@@ -73,6 +78,7 @@
 }
 
 .list-title {
+	cursor: -webkit-grab;
 	margin: 0px;
 	padding: 10px 0px;
 }
