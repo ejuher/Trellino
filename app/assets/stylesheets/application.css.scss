@@ -117,13 +117,6 @@ div.highlight-add {
 	padding: 10px 0px;
 }
 
-#modal-screen {
-	background: rgba(10,10,10,0.5);
-	height: 100%;
-	position: absolute;
-	width: 100%;
-}
-
 .navbar {
 	background: #9FA4DF;
 	border: none;
@@ -137,6 +130,9 @@ div.highlight-add {
 
 .sign-out {
 	background: #96E0BA;
+	border: 2px solid #43A975;
+	border-radius: 6px;
+	box-shadow: 1px 1px 0px grey;
 }
 
 textarea {
