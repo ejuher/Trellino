@@ -22,11 +22,8 @@
 	border-radius: 6px;
 }
 
-.add-list {
+#add-list {
 	display: inline-block;
-	background: #9FA4DF;
-	border: 2px solid #5057A7;
-	border-radius: 6px;
 	margin-left: 15px;
 	padding: 5px 10px;
 	position: absolute;
@@ -39,7 +36,7 @@
 }
 
 #board-header {
-	padding: 16px;
+	padding: 16px 16px 6px 16px;
 }
 
 #board-title {
@@ -81,7 +78,7 @@
 	background: #43A975;
 }
 
-.highlight-add {
+div.highlight-add {
 	background: #5057A7;
 	color: white;
 }
@@ -90,14 +87,14 @@
 	background: #9FA4DF;
 	border: 2px solid #5057A7;
 	border-radius: 6px;
-	float: left;
 	margin-left: 15px;
-	padding: 0px 10px 10px 10px;
-	width: 260px;
 }
 
 .list-item {
-
+	float: left;
+	margin-top: 10px;
+	padding: 0px 10px 10px 10px;
+	width: 260px;
 }
 
 .list-title {
