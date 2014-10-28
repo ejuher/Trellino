@@ -12,8 +12,8 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 	events: {
 		'mousedown  .list-title' : 'startDragging',
 		'mouseup    .list-title' : 'stopDragging',
-		'mouseenter .add-list'   : 'highlightList',
-		'mouseleave .add-list'   : 'unhighlightList',
+		'mouseenter #add-list'   : 'highlightList',
+		'mouseleave #add-list'   : 'unhighlightList',
 	},
 
 	addList: function (list) {
