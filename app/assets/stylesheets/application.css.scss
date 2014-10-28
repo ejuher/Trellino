@@ -62,7 +62,7 @@
 	padding: 10px 0px 10px 0px;
 }
 
-.dragging {
+div.dragging {
 	box-shadow: 6px 6px 0px rgba(10,10,10,0.5);
 	transform: rotate(3deg);
 }
@@ -87,6 +87,7 @@ div.highlight-add {
 	background: #9FA4DF;
 	border: 2px solid #5057A7;
 	border-radius: 6px;
+	box-shadow: 1px 1px 0px grey;
 	margin-left: 15px;
 }
 
