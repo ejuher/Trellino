@@ -22,10 +22,29 @@
 	border-radius: 6px;
 }
 
+.add-list {
+	display: inline-block;
+	background: #9FA4DF;
+	border: 2px solid #5057A7;
+	border-radius: 6px;
+	margin-left: 15px;
+	padding: 5px 10px;
+	position: absolute;
+}
+
 .board-show {
 	background: #95C0D9;
 	height: 100%;
 	padding: 1px 20px 20px 20px;
+}
+
+#board-header {
+	padding: 16px;
+}
+
+#board-title {
+	display: inline-block;
+	margin: 0px;
 }
 
 .card {
@@ -77,6 +96,10 @@
 	width: 260px;
 }
 
+.list-item {
+
+}
+
 .list-title {
 	cursor: -webkit-grab;
 	margin: 0px;
@@ -84,10 +107,18 @@
 }
 
 .navbar {
+	background: #9FA4DF;
+	border: none;
+	border-radius: 0px;
 	margin-bottom: 0px;
 }
 
+.navbar-default .navbar-brand {
+	color: black;
+}
+
 .glyphicon-remove {
+	cursor: pointer;
 	float: right;
 	transition: transform 0.5s;
 }
