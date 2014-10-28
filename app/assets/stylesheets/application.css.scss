@@ -30,7 +30,6 @@
 }
 
 .board-show {
-	background: #95C0D9;
 	height: 100%;
 	padding: 1px 20px 20px 20px;
 }
@@ -42,6 +41,10 @@
 #board-title {
 	display: inline-block;
 	margin: 0px;
+}
+
+body {
+	background: #95C0D9;
 }
 
 .card {
@@ -65,6 +68,16 @@
 div.dragging {
 	box-shadow: 6px 6px 0px rgba(10,10,10,0.5);
 	transform: rotate(3deg);
+}
+
+.glyphicon-remove {
+	cursor: pointer;
+	float: right;
+	transition: transform 0.5s;
+}
+
+.glyphicon-remove:hover {
+	transform: rotate(180deg);
 }
 
 .group:after {
@@ -104,6 +117,13 @@ div.highlight-add {
 	padding: 10px 0px;
 }
 
+#modal-screen {
+	background: rgba(10,10,10,0.5);
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
 .navbar {
 	background: #9FA4DF;
 	border: none;
@@ -115,14 +135,8 @@ div.highlight-add {
 	color: black;
 }
 
-.glyphicon-remove {
-	cursor: pointer;
-	float: right;
-	transition: transform 0.5s;
-}
-
-.glyphicon-remove:hover {
-	transform: rotate(180deg);
+.sign-out {
+	background: #96E0BA;
 }
 
 textarea {

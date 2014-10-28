@@ -14,6 +14,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 		'mouseup    .list-title' : 'stopDragging',
 		'mouseenter #add-list'   : 'highlightList',
 		'mouseleave #add-list'   : 'unhighlightList',
+		'mousedown  #add-list'   : 'showListForm',
 	},
 
 	addList: function (list) {
@@ -89,5 +90,9 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 
 	unhighlightList: function(event) {
 		$(event.currentTarget).removeClass('highlight-add');
+	},
+
+	showListForm: function (event) {
+		$(event.currentTarget).addClass('clicked');
 	}
 })
