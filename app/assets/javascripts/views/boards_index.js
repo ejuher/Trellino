@@ -8,7 +8,10 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 
 	events: {
 		'submit form.new-list': 'createBoard',
-		'click button.delete-board': 'deleteBoard'
+		'click button.delete-board': 'deleteBoard',
+		'mouseover .board-item' : 'highlightBoard',
+		'mouseout  .board-item' : 'unhighlightBoard',
+		'click     .board-item' : ''
 	},
 
 	createBoard: function (event) {
@@ -34,10 +37,4 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 		this.$el.html(renderedContent); 
 		return this;
 	}
-
-	// button for new board
-	// event for clicking on the button
-	// when button is clicked on, render a form
-	// event listening for form submit
-	// on form submit, create the board in the database and re-render
 })

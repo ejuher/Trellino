@@ -1,8 +1,10 @@
 <% boards.each( function(board) { %>
-	<div class="board-item list">
-		<%= board.escape('title') %>
-		<span class="glyphicon glyphicon-remove"></span>
-	</div>
+	<a href="#boards/<%= board.id %>">
+		<div class="board-item list">
+			<%= board.escape('title') %>
+			<span class="glyphicon glyphicon-remove"></span>
+		</div>
+	</a>
 <% }); %>
 <div class="board-item list">
 	<form class="new-board">
