@@ -12,9 +12,9 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 	events: {
 		'mousedown  .list-title' : 'startDragging',
 		'mouseup    .list-title' : 'stopDragging',
-		'mouseenter #add-list'   : 'highlightList',
-		'mouseleave #add-list'   : 'unhighlightList',
-		'click      #add-list'   : 'showListForm',
+		'mouseenter .add-list'   : 'highlightList',
+		'mouseleave .add-list'   : 'unhighlightList',
+		'click      .add-list'   : 'showListForm',
 	},
 
 	addList: function (list) {
@@ -93,6 +93,9 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 	},
 
 	showListForm: function (event) {
+		$(event.currentTarget).removeClass('add-list');
+		$(event.currentTarget).removeClass('highlight-add');
+		$(event.currentTarget).addClass('list-form') // toggle mouseover listening
 		var newList = new TrelloClone.Views.ListNew({ collection: this.model.lists() });
 		$(event.currentTarget).html(newList.render().$el);
 	}

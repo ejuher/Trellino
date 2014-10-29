@@ -22,7 +22,7 @@
 	border-radius: 6px;
 }
 
-#add-list {
+.add-list {
 	display: inline-block;
 	margin-left: 15px;
 	padding: 5px 10px;
@@ -102,6 +102,7 @@ div.highlight-add {
 	border-radius: 6px;
 	box-shadow: 1px 1px 0px grey;
 	margin-left: 15px;
+	transition: all 0.5s;
 }
 
 .list-item {
@@ -123,6 +124,21 @@ div.highlight-add {
 	border-radius: 0px;
 	margin-bottom: 0px;
 }
+
+.list-form {
+	display: inline-block;
+	padding: 5px 10px;
+	position: absolute;
+}
+
+/*.add-list form {
+	display: none;
+}*/
+
+/*.list-form {
+	display: none;
+	width: 68%;
+}*/
 
 .navbar-default .navbar-brand {
 	color: black;
