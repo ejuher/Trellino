@@ -13,7 +13,10 @@ TrelloClone.Views.ListNew = Backbone.View.extend({
 		var formJSON = $(event.currentTarget).serializeJSON();
 		var newList = new TrelloClone.Models.List(formJSON.list);
 
-		newList.set('board_id', this.collection.board.id);
+		newList.set({
+			board_id: this.collection.board.id,
+			ord: this.collection.length
+		});
 		
 		newList.save({}, {
 			success: function () {
