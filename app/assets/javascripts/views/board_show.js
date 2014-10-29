@@ -10,11 +10,12 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 	},
 
 	events: {
-		'mousedown  .list-title' : 'startDragging',
-		'mouseup    .list-title' : 'stopDragging',
-		'mouseenter .add-list'   : 'highlightList',
-		'mouseleave .add-list'   : 'unhighlightList',
-		'click      .add-list'   : 'showListForm',
+		'mousedown  .list-title'     : 'startDragging',
+		'mouseup    .list-title'     : 'stopDragging',
+		'mouseenter .add-list'       : 'highlightList',
+		'mouseleave .add-list'       : 'unhighlightList',
+		'click      .add-list'       : 'showListForm',
+		'click      .new-list-close' : 'closeListForm',
 	},
 
 	addList: function (list) {
@@ -93,10 +94,18 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 	},
 
 	showListForm: function (event) {
-		$(event.currentTarget).removeClass('add-list');
-		$(event.currentTarget).removeClass('highlight-add');
-		$(event.currentTarget).addClass('list-form') // toggle mouseover listening
+		$(event.currentTarget)
+			.removeClass('add-list')
+			.removeClass('highlight-add')
+			.addClass('list-form');
 		var newList = new TrelloClone.Views.ListNew({ collection: this.model.lists() });
 		$(event.currentTarget).html(newList.render().$el);
+	},
+
+	closeListForm: function (event) {
+		$(event.currentTarget.parentElement).html('Add List ...');
+		$(this.$el.find('#board-header .list'))
+			.addClass('add-list')
+			.removeClass('list-form');
 	}
 })
