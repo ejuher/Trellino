@@ -7,12 +7,10 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 	},
 
 	events: {
-		'submit form.new-list': 'createBoard',
-		'click button.delete-board': 'deleteBoard',
-		'mouseover .board-item' : 'highlightBoard',
-		'mouseout  .board-item' : 'unhighlightBoard',
-		'click     .add'        : 'showForm',
-		'click form .glyphicon-remove' : 'closeForm'
+		'submit    form'                   : 'createBoard',
+		'click     a .glyphicon-remove'    : 'deleteBoard',
+		'click     .add'                   : 'showForm',
+		'click     form .glyphicon-remove' : 'closeForm'
 	},
 
 	createBoard: function (event) {
@@ -21,13 +19,13 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 		var newBoard = new TrelloClone.Models.Board(formJSON);
 		newBoard.save({}, {
 			success: function () {
-				// this.collection.add(newBoard);
-				Backbone.history.navigate("boards/" + newBoard.id, { trigger: true });
+				this.collection.add(newBoard);
 			}.bind(this)
 		});
 	},
 
 	deleteBoard: function (event) {
+		event.preventDefault();
 		var boardId = $(event.currentTarget).data('boardId');
 		var board = this.collection.getOrFetch(boardId);
 		board.destroy();
@@ -36,7 +34,7 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 	showForm: function (event) {
 		$divAdd = $(event.currentTarget)
 		$divAdd.toggleClass('add');
-		$divAdd.find('.add-text').toggle(function(test) {
+		$divAdd.find('.add-text').toggle(function() {
 			$divAdd.find('form').toggle(400);
 		});
 	},

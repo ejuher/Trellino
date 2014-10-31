@@ -2,7 +2,7 @@
 	<a href="#boards/<%= board.id %>">
 		<div class="board-item list">
 			<%= board.escape('title') %>
-			<span class="glyphicon glyphicon-remove"></span>
+			<span class="glyphicon glyphicon-remove" data-board-id="<%= board.id %>"></span>
 		</div>
 	</a>
 <% }); %>
