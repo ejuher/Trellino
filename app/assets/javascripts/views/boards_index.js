@@ -12,7 +12,7 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 		'mouseover .board-item' : 'highlightBoard',
 		'mouseout  .board-item' : 'unhighlightBoard',
 		'click     .add'        : 'showForm',
-		'click .add .glyphicon-close' : 'closeForm'
+		'click form .glyphicon-remove' : 'closeForm'
 	},
 
 	createBoard: function (event) {
@@ -35,9 +35,17 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 
 	showForm: function (event) {
 		$divAdd = $(event.currentTarget)
+		$divAdd.toggleClass('add');
 		$divAdd.find('.add-text').toggle(function(test) {
 			$divAdd.find('form').toggle(400);
 		});
+	},
+
+	closeForm: function (event) {
+		$(event.currentTarget.parentElement.parentElement).toggleClass('add');
+		this.$el.find('form').toggle(400, function() {
+			this.$el.find('.add-text').toggle(400);
+		}.bind(this))
 	},
 
 	render: function () {

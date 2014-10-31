@@ -53,6 +53,12 @@ a:hover {
 	width: 260px;
 }
 
+.board-item:hover {
+	background: #5057A7;
+	color: white;
+	cursor: pointer;
+}
+
 .board-item form {
 	display: none;
 }
