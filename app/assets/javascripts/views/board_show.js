@@ -43,7 +43,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 				var $cards = $list.find('.card');
 				var listId = $list.data('listId');
 
-				for (var i = 0; i < $cards.length; i++) {
+				for (var i = 0, len = $cards.length; i < len; i++) {
 					var cardId = $($cards[i]).data('cardId');
 					$.ajax({
 						url: 'api/cards/' + cardId,
@@ -63,7 +63,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 			update: function (event, ui) {
 				var $lists = $(event.target).find('.list');
 
-				for (var i = 0; i < $lists.length; i++) {
+				for (var i = 0, len = $lists.length; i < len; i++) {
 					var listId = $($lists[i]).data('listId');
 					$.ajax({
 						url: 'api/lists/' + listId,
