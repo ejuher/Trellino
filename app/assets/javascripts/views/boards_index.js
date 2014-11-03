@@ -35,14 +35,14 @@ TrelloClone.Views.BoardIndex = Backbone.View.extend({
 		$divAdd = $(event.currentTarget)
 		$divAdd.toggleClass('add');
 		$divAdd.find('.add-text').toggle(function() {
-			$divAdd.find('form').toggle(400);
+			$divAdd.find('form').toggle(100);
 		});
 	},
 
 	closeForm: function (event) {
 		$(event.currentTarget.parentElement.parentElement).toggleClass('add');
-		this.$el.find('form').toggle(400, function() {
-			this.$el.find('.add-text').toggle(400);
+		this.$el.find('form').toggle(100, function() {
+			this.$el.find('.add-text').toggle(100);
 		}.bind(this))
 	},
 

@@ -38,12 +38,14 @@ a:hover {
 }
 
 .add-card {
+	cursor: pointer;
 	padding: 10px;
 	border: 2px solid #5057A7;
 	border-radius: 6px;
 }
 
 .add-list {
+	cursor: pointer;
 	display: inline-block;
 	margin-left: 15px;
 	padding: 5px 10px;
