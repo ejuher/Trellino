@@ -16,31 +16,37 @@
 @import "bootstrap";
 @import "font-awesome";
 
+/*$board-color: */
+$card-color:            #96E0BA;
+$card-complement-color: #43A975;
+$list-color:            #9FA4DF;
+$list-complement-color: #5057A7;
+
 a { 
 	color: black;
-}
 
-a:hover {
-	color: black;
-	text-decoration: none;
+	&:hover {
+		color: black;
+		text-decoration: none;
+	}
 }
 
 .access-form {
 	display: inline-block;
 	margin-left: 80px;
 	margin-top: 20px;
-	background-color: #9FA4DF;
-}
+	background-color: $list-color;
 
-.access-form h1 {
-	display: inline-block;
-	margin-top: 0px;
+	h1 {
+		display: inline-block;
+		margin-top: 0px;
+	}
 }
 
 .add-card {
 	cursor: pointer;
 	padding: 10px;
-	border: 2px solid #5057A7;
+	border: 2px solid $list-complement-color;
 	border-radius: 6px;
 }
 
@@ -65,12 +71,12 @@ a:hover {
 	margin-top: 10px;
 	padding: 10px;
 	width: 260px;
-}
 
-.board-item:hover {
-	background: #5057A7;
-	color: white;
-	cursor: pointer;
+	&:hover {
+		background: $list-complement-color;
+		color: white;
+		cursor: pointer;
+	};
 }
 
 .board-item form {
@@ -87,8 +93,8 @@ body {
 }
 
 .card {
-	background: #96E0BA;
-	border: 2px solid #43A975;
+	background: $card-color;
+	border: 2px solid $card-complement-color;
 	border-radius: 6px;
 	box-shadow: 1px 1px 0px grey;
 	margin-bottom: 10px;
@@ -113,10 +119,10 @@ div.dragging {
 	cursor: pointer;
 	float: right;
 	transition: transform 0.5s;
-}
 
-.glyphicon-remove:hover {
-	transform: rotate(180deg);
+	&:hover {
+		transform: rotate(180deg);	
+	};
 }
 
 .group:after {
@@ -127,17 +133,17 @@ div.dragging {
 
 .highlight {
 	cursor: -webkit-grab;
-	background: #43A975;
+	background: $card-complement-color;
 }
 
 div.highlight-add {
-	background: #5057A7;
+	background: $list-complement-color;
 	color: white;
 }
 
 .list {
-	background: #9FA4DF;
-	border: 2px solid #5057A7;
+	background: $list-color;
+	border: 2px solid $list-complement-color;
 	border-radius: 6px;
 	box-shadow: 1px 1px 0px grey;
 	margin-left: 15px;
@@ -157,7 +163,7 @@ div.highlight-add {
 }
 
 .navbar {
-	background: #9FA4DF;
+	background: $list-color;
 	border: none;
 	border-radius: 0px;
 	margin-bottom: 0px;
@@ -167,11 +173,11 @@ div.highlight-add {
 	display: inline-block;
 	padding: 5px 10px;
 	position: absolute;
-}
 
-.list input{
-	display: inline-block;
-	width: 68%;
+	input {
+		display: inline-block;
+		width: 68%;
+	}
 }
 
 .navbar-default .navbar-brand {
@@ -179,10 +185,14 @@ div.highlight-add {
 }
 
 .sign-out {
-	background: #96E0BA;
-	border: 2px solid #43A975;
+	background: $card-color;
+	border: 2px solid $card-complement-color;
 	border-radius: 6px;
 	box-shadow: 1px 1px 0px grey;
+
+	&:hover {
+		background: $card-complement-color;
+	}	
 }
 
 textarea {
